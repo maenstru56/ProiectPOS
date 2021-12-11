@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ProiectPOS:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ProiectPOS</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ProiectPOS-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ProiectPOS:war exploded" />
+    </root>
+  </artifact>
+</component>
