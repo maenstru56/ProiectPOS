@@ -83,3 +83,5 @@ target/ProiectPOS-1.0-SNAPSHOT/META-INF/MANIFEST.MF
 
 #Databade local shit
 Database/
+derby.log
+.idea/dataSources.xml
