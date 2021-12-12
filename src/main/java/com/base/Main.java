@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class Main {
     private static Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        //Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
         String dbUrl = "jdbc:derby:Database;";
 
         Properties properties = new Properties();
