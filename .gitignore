@@ -85,3 +85,4 @@ target/ProiectPOS-1.0-SNAPSHOT/META-INF/MANIFEST.MF
 Database/
 derby.log
 .idea/dataSources.xml
+ProiectPOS.iml

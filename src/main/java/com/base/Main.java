@@ -8,12 +8,11 @@ import java.util.Properties;
 
 public class Main {
     private static Connection getConnection() throws ClassNotFoundException, SQLException {
-        //Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-        //C:\Users\Tavi\Videos\IS\ProiectPOS\Database
-        String dbUrl = "jdbc:derby:C:/Users/Tavi/Videos/IS/ProiectPOS/Database;create=true";
+        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        String dbUrl = "jdbc:derby:Database;";
 
         Properties properties = new Properties();
-        properties.put("user", "admin");
+        properties.put("user", "database");
         properties.put("password", "");
 
         Connection connection = DriverManager.getConnection(dbUrl, properties);
@@ -22,7 +21,7 @@ public class Main {
 
     private static void showAllUsers(Connection connection) throws SQLException {
         Statement connectionStatement = connection.createStatement();
-        ResultSet results = connectionStatement.executeQuery("SELECT * FROM USER");
+        ResultSet results = connectionStatement.executeQuery("SELECT * FROM USER_TABLE");
         ResultSetMetaData resultSetMetaData = results.getMetaData();
 
         int numberOfCols = resultSetMetaData.getColumnCount();
@@ -36,9 +35,13 @@ public class Main {
 
         while (results.next()) {
             int id = results.getInt(1);
-            String description = results.getString(2);
+            String username = results.getString(2);
+            String password = results.getString(3);
+            int id_role = results.getInt(4);
+            int id_state = results.getInt(5);
+            String email = results.getString(6);
 
-            System.out.println(String.format(" %10s %10s", id, description));
+            System.out.println(String.format(" %10s %10s %10s %10s %10s %10s", id, username, password, id_role, id_state, email));
         }
 
         results.close();
@@ -46,10 +49,10 @@ public class Main {
         connection.close();
     }
 
-    private static void addUser(Connection connection, String username, String password, int role, int state_id, String email, String name) throws SQLException{
+    private static void addUser(Connection connection, String username, String password, int id_role, int id_state, String email, String name) throws SQLException{
         Statement stmt = connection.createStatement();
 
-        stmt.executeUpdate("INSERT INTO USER (\"username\", \"pass\", \"role\", \"state_id\", \"email\", \"name\") VALUES ('" + username + "','" + password + "','" + role + "','" + state_id + "','" + email + "','" + name + "')");
+        stmt.executeUpdate("INSERT INTO USER_TABLE (\"USERNAME\", \"PASSWORD\", \"ID_ROLE\", \"ID_STATE\", \"EMAIL\") VALUES ('" + username + "','" + password + "'," + id_role + "," + id_state + ",'" + email + "')");
 
         stmt.close();
         connection.close();
@@ -103,7 +106,7 @@ public class Main {
         //ConsoleView view = new ConsoleView(new Store("Lidl", "Str. Rusciorului", new ProductCatalog()), new Controller());
         //view.start();
 
-        addUser(getConnection(), "testuser", "testpass", 1, 1,"a@a.a", "Test" );
+        //addUser(getConnection(), "testuser", "testpass", 1, 1,"a@a.a", "Test" );
         showAllUsers(getConnection());
     }
 }
