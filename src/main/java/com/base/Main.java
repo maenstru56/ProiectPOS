@@ -8,8 +8,9 @@ import java.util.Properties;
 
 public class Main {
     private static Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
-        String dbUrl = "jdbc:derby:Database;";
+        //Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+        //C:\Users\Tavi\Videos\IS\ProiectPOS\Database
+        String dbUrl = "jdbc:derby:C:/Users/Tavi/Videos/IS/ProiectPOS/Database;create=true";
 
         Properties properties = new Properties();
         properties.put("user", "admin");
@@ -99,10 +100,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ConsoleView view = new ConsoleView(new Store("Lidl", "Str. Rusciorului", new ProductCatalog()), new Controller());
+        //ConsoleView view = new ConsoleView(new Store("Lidl", "Str. Rusciorului", new ProductCatalog()), new Controller());
+        //view.start();
 
-        view.start();
-
+        addUser(getConnection(), "testuser", "testpass", 1, 1,"a@a.a", "Test" );
         showAllUsers(getConnection());
     }
 }
