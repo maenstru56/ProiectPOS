@@ -19,7 +19,7 @@ public class Main {
         EntityManager em = emf.createEntityManager();
 
 
-        CategoryEntity p1 = em.find(CategoryEntity.class, 102);
+        CategoryEntity p1 = em.find(CategoryEntity.class, 103);
 
         em.getTransaction().begin();
         em.remove(p1);

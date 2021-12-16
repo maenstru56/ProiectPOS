@@ -1,1 +1,3 @@
 https://www.objectdb.com/java/jpa/persistence/crud
+
+ALTER TABLE CATEGORY ALTER COLUMN id RESTART WITH 1
