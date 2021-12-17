@@ -54,7 +54,7 @@ create table PRODUCT
     IMG_PATH     VARCHAR(255)
 );
 
-create table "user"
+create table USER_TABLE
 (
     ID       INTEGER default AUTOINCREMENT: start 1 increment 1 generated always as identity
         constraint USER_PK
@@ -73,7 +73,7 @@ create table "user"
     EMAIL    VARCHAR(64)
 );
 
-create table "transaction"
+create table TRANSACTION_TABLE
 (
     ID                 INTEGER default AUTOINCREMENT: start 1 increment 1 generated always as identity
         constraint TRANSACTION_PK
