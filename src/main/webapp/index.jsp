@@ -5,26 +5,25 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
+<h1><%= "Hello World!" %></h1>
 <br/>
 <div>
-    <form action="/hello-servlet" method="post">
+    <form method="post" action="AddUser">
         <div>
-            <input type="text" id="username" />
+            <input type="text" name="username" />
         </div>
         <div>
-            <input type="password" id="password" />
+            <input type="password" name="password" />
         </div>
         <div>
-            <select name="roles" id="roles">
+            <select name="roles" name="roles">
                 <option value="1">Cashier</option>
                 <option value="2">Director</option>
                 <option value="3">Admin</option>
             </select>
         </div>
         <div>
-            <input type="email" id="email" />
+            <input type="email" name="email" />
         </div>
         <div>
             <input type="submit" value="Add" />

@@ -13,22 +13,6 @@ public class Main {
         //ConsoleView view = new ConsoleView(new Store("Lidl", "Str. Rusciorului", new ProductCatalog()), new Controller());
         //view.start();
 
-        System.getProperties().setProperty("derby.language.sequence.preallocator", String.valueOf(1));
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
-        EntityManager em = emf.createEntityManager();
-
-
-        CategoryEntity p1 = em.find(CategoryEntity.class, 103);
-
-
-
-        em.getTransaction().begin();
-        em.remove(p1);
-        em.getTransaction().commit();
-
-        em.close();
-        emf.close();
 
     }
 }
