@@ -21,6 +21,8 @@ public class Main {
 
         CategoryEntity p1 = em.find(CategoryEntity.class, 103);
 
+
+
         em.getTransaction().begin();
         em.remove(p1);
         em.getTransaction().commit();
